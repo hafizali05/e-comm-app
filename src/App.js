@@ -10,9 +10,31 @@ export default function App() {
       .catch((error) => new Error(error.message));
   }, []);
   console.log("products", products);
-  return products?.results
-    ? products.results.map((item) => {
-        return <div key={item.id}>{item.id}</div>;
-      })
-    : null;
+
+  if (products?.results) {
+    return (
+      <div className={"wrapper"}>
+        {products.results.map((item) => {
+          return (
+            <div className={'product'}>
+              <div key={item.id} className={"productInfo"}>
+                <img
+                  width="100%"
+                  alt={item.name}
+                  src={item.images.largeSrc.path}
+                ></img>
+                <a className={"productName"} href={item.href}>
+                  {item.name}
+                </a>
+                <span>£{item.list_price}</span>
+              </div>
+              <button className={'purchaseButton'}>Quick Add</button>
+            </div>
+          );
+        })}
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
