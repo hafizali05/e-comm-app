@@ -44,6 +44,7 @@ body {
   height: 35px;
   outline: none;
   margin-top: auto;
+  cursor: pointer;
 }
 .purchaseButton:hover {
   background: #00322b;
