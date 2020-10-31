@@ -22,11 +22,21 @@ export default function App() {
           return (
             <article className={"product"}>
               <div key={item.id} className={"productInfo"}>
-                <img
-                  width="100%"
-                  alt={item.name}
-                  src={item.images.largeSrc.path}
-                ></img>
+                <picture className={"productImage"}>
+                  <img
+                    className={"itemImage"}
+                    width="75%"
+                    alt={item.name}
+                    src={item.images.largeSrc.path}
+                  ></img>
+                  <img
+                    className={"exclusiveProductBadge"}
+                    width="25%"
+                    height='30%'
+                    alt={item.name}
+                    src={"/images/badge.png"}
+                  ></img>
+                </picture>
                 <a className={"productName"} href={item.href}>
                   {item.name}
                 </a>

@@ -18,6 +18,11 @@ body {
   align-items: center;
 }
 
+.productImage {
+  display: flex;
+  width: 100%;
+}
+
 .productInfo {
   display: flex;
   flex-direction: column;
@@ -48,5 +53,5 @@ body {
 }
 .purchaseButton:hover {
   background: #00322b;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
