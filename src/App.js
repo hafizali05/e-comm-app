@@ -2,6 +2,10 @@ import React from "react";
 import api from "./api";
 import "./styles.css";
 
+const PURCHASE_BUTTON_TEXT = {
+  ADD_TO_BASKET: "Add to Basket",
+  EMAIL_WHEN_IN_STOCK: "Email when in stock",
+};
 export default function App() {
   const [products, setProducts] = React.useState();
   React.useEffect(() => {
@@ -28,7 +32,11 @@ export default function App() {
                 </a>
                 <span>£{item.list_price}</span>
               </div>
-              <button className={'purchaseButton'}>Quick Add</button>
+              <button className={"purchaseButton"}>
+                {item.inStock
+                  ? PURCHASE_BUTTON_TEXT.ADD_TO_BASKET
+                  : PURCHASE_BUTTON_TEXT.EMAIL_WHEN_IN_STOCK}
+              </button>
             </article>
           );
         })}
