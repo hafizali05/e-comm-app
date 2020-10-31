@@ -9,7 +9,7 @@ body {
 }
 
 .product {
-  border:1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -26,8 +26,7 @@ body {
 
 .productName {
   text-decoration: none;
-  /* color: #038678; */
-  color: #00594C;
+  color: #00594c;
   font-weight: bold;
 }
 
@@ -44,6 +43,7 @@ body {
   border: none;
   height: 35px;
   outline: none;
+  margin-top: auto;
 }
 .purchaseButton:hover {
   background: #00322b;

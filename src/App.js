@@ -13,10 +13,10 @@ export default function App() {
 
   if (products?.results) {
     return (
-      <div className={"wrapper"}>
+      <section className={"wrapper"}>
         {products.results.map((item) => {
           return (
-            <div className={'product'}>
+            <article className={"product"}>
               <div key={item.id} className={"productInfo"}>
                 <img
                   width="100%"
@@ -29,10 +29,10 @@ export default function App() {
                 <span>£{item.list_price}</span>
               </div>
               <button className={'purchaseButton'}>Quick Add</button>
-            </div>
+            </article>
           );
         })}
-      </div>
+      </section>
     );
   } else {
     return null;
