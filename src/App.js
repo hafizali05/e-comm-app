@@ -6,6 +6,8 @@ const PURCHASE_BUTTON_TEXT = {
   ADD_TO_BASKET: "Add to Basket",
   EMAIL_WHEN_IN_STOCK: "Email when in stock",
 };
+
+const hb_exclusive_product_sku = ["043243", "040173", "044233", "045925"];
 export default function App() {
   const [products, setProducts] = React.useState();
   React.useEffect(() => {
@@ -19,23 +21,25 @@ export default function App() {
     return (
       <section className={"wrapper"}>
         {products.results.map((item) => {
+          const isExclusive = hb_exclusive_product_sku.includes(item.sku);
           return (
-            <article className={"product"}>
+            <article className={"product"} key={item.id}>
               <div key={item.id} className={"productInfo"}>
                 <picture className={"productImage"}>
                   <img
-                    className={"itemImage"}
-                    width="75%"
+                    width={isExclusive ? "75%" : "100%"}
                     alt={item.name}
                     src={item.images.largeSrc.path}
                   ></img>
-                  <img
-                    className={"exclusiveProductBadge"}
-                    width="25%"
-                    height='30%'
-                    alt={item.name}
-                    src={"/images/badge.png"}
-                  ></img>
+                  {isExclusive ? (
+                    <img
+                      className={"exclusiveProductBadge"}
+                      width="25%"
+                      height="30%"
+                      alt={item.name}
+                      src={"/images/badge.png"}
+                    ></img>
+                  ) : null}
                 </picture>
                 <a className={"productName"} href={item.href}>
                   {item.name}

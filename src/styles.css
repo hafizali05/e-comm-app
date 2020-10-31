@@ -26,7 +26,6 @@ body {
 .productInfo {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
 }
 
 .productName {
