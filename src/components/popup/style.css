@@ -16,11 +16,24 @@
   border-radius: 50%;
   background: white;
   position: inherit;
-  left: 29em;
+  left: 390px;
   border: none;
-  bottom: 14em;
+  bottom: 250px;
   color: #0c3c29;
   font-weight: 900;
   outline: none;
   cursor: pointer;
+}
+
+.offerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.offerInfo > h2 {
+  background: white;
+  color: #0c3c29;
+  padding: 10px;
+  border-radius: 10px;
 }
