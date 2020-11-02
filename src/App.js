@@ -1,7 +1,7 @@
 import React from "react";
 import api from "./api";
+import Popup from "./components/popup/Popup";
 import "./styles.css";
-
 const PURCHASE_BUTTON_TEXT = {
   ADD_TO_BASKET: "Add to Basket",
   EMAIL_WHEN_IN_STOCK: "Email when in stock",
@@ -19,41 +19,44 @@ export default function App() {
 
   if (products?.results) {
     return (
-      <section className={"wrapper"}>
-        {products.results.map((item) => {
-          const isExclusive = hb_exclusive_product_sku.includes(item.sku);
-          return (
-            <article className={"product"} key={item.id}>
-              <div key={item.id} className={"productInfo"}>
-                <picture className={"productImage"}>
-                  <img
-                    width={isExclusive ? "75%" : "100%"}
-                    alt={item.name}
-                    src={item.images.largeSrc.path}
-                  ></img>
-                  {isExclusive ? (
+      <section>
+        <Popup />
+        <section className={"wrapper"}>
+          {products.results.map((item) => {
+            const isExclusive = hb_exclusive_product_sku.includes(item.sku);
+            return (
+              <article className={"product"} key={item.id}>
+                <div key={item.id} className={"productInfo"}>
+                  <picture className={"productImage"}>
                     <img
-                      className={"exclusiveProductBadge"}
-                      width="25%"
-                      height="30%"
+                      width={isExclusive ? "75%" : "100%"}
                       alt={item.name}
-                      src={"/images/badge.png"}
+                      src={item.images.largeSrc.path}
                     ></img>
-                  ) : null}
-                </picture>
-                <a className={"productName"} href={item.href}>
-                  {item.name}
-                </a>
-                <span>£{item.list_price}</span>
-              </div>
-              <button className={"purchaseButton"}>
-                {item.inStock
-                  ? PURCHASE_BUTTON_TEXT.ADD_TO_BASKET
-                  : PURCHASE_BUTTON_TEXT.EMAIL_WHEN_IN_STOCK}
-              </button>
-            </article>
-          );
-        })}
+                    {isExclusive ? (
+                      <img
+                        className={"exclusiveProductBadge"}
+                        width="25%"
+                        height="30%"
+                        alt={item.name}
+                        src={"/images/badge.png"}
+                      ></img>
+                    ) : null}
+                  </picture>
+                  <a className={"productName"} href={item.href}>
+                    {item.name}
+                  </a>
+                  <span>£{item.list_price}</span>
+                </div>
+                <button className={"purchaseButton"}>
+                  {item.inStock
+                    ? PURCHASE_BUTTON_TEXT.ADD_TO_BASKET
+                    : PURCHASE_BUTTON_TEXT.EMAIL_WHEN_IN_STOCK}
+                </button>
+              </article>
+            );
+          })}
+        </section>
       </section>
     );
   } else {
