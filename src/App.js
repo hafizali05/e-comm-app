@@ -26,25 +26,28 @@ export default function App() {
             const isExclusive = hb_exclusive_product_sku.includes(item.sku);
             return (
               <article className={"product"} key={item.id}>
-                {isExclusive ? (
+                <picture>
                   <img
-                    className={"exclusiveProductBadge"}
-                    width="50"
-                    height="50"
+                    width={isExclusive ? "80%" : "100%"}
+                    height="80%"
+                    className={"productImage"}
                     alt={item.name}
-                    src={"/images/badge.png"}
+                    src={item.images.largeSrc.path}
                   ></img>
-                ) : null}
-                <img
-                  className={'productImage'}
-                  height="200"
-                  width="200"
-                  alt={item.name}
-                  src={item.images.largeSrc.path}
-                ></img>
+                  {isExclusive ? (
+                    <img
+                      width="20%"
+                      height="20%"
+                      alt={item.name}
+                      src={"/images/badge.png"}
+                    ></img>
+                  ) : null}
+                </picture>
+
                 <a className={"productName"} href={item.href}>
                   {item.name}
                 </a>
+
                 <span>£{item.list_price}</span>
                 <button className={"purchaseButton"}>
                   {item.inStock

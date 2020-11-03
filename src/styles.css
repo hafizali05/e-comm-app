@@ -16,19 +16,18 @@ body {
   margin: 10px;
   padding: 10px;
   width: 200px;
+  align-self: start;
+  height: 350px;
 }
-
-.exclusiveProductBadge {
-  align-self: flex-end;
+.product > picture {
+  display: flex;
+  margin: auto;
 }
-.productImage {
-  align-self: center;
-}
-
 .productName {
   text-decoration: none;
   color: #00594c;
   font-weight: bold;
+  margin: auto;
 }
 
 .product > span {
