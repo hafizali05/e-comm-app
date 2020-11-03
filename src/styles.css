@@ -16,17 +16,13 @@ body {
   margin: 10px;
   padding: 10px;
   width: 200px;
-  align-items: center;
 }
 
+.exclusiveProductBadge {
+  align-self: flex-end;
+}
 .productImage {
-  display: flex;
-  width: 100%;
-}
-
-.productInfo {
-  display: flex;
-  flex-direction: column;
+  align-self: center;
 }
 
 .productName {
@@ -35,7 +31,7 @@ body {
   font-weight: bold;
 }
 
-.productInfo > span {
+.product > span {
   font-weight: bold;
 }
 
@@ -50,6 +46,7 @@ body {
   outline: none;
   margin-top: auto;
   cursor: pointer;
+  align-self: center;
 }
 .purchaseButton:hover {
   background: #00322b;

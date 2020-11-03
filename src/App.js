@@ -26,28 +26,26 @@ export default function App() {
             const isExclusive = hb_exclusive_product_sku.includes(item.sku);
             return (
               <article className={"product"} key={item.id}>
-                <div key={item.id} className={"productInfo"}>
-                  <picture className={"productImage"}>
-                    <img
-                      width={isExclusive ? "75%" : "100%"}
-                      alt={item.name}
-                      src={item.images.largeSrc.path}
-                    ></img>
-                    {isExclusive ? (
-                      <img
-                        className={"exclusiveProductBadge"}
-                        width="25%"
-                        height="30%"
-                        alt={item.name}
-                        src={"/images/badge.png"}
-                      ></img>
-                    ) : null}
-                  </picture>
-                  <a className={"productName"} href={item.href}>
-                    {item.name}
-                  </a>
-                  <span>£{item.list_price}</span>
-                </div>
+                {isExclusive ? (
+                  <img
+                    className={"exclusiveProductBadge"}
+                    width="50"
+                    height="50"
+                    alt={item.name}
+                    src={"/images/badge.png"}
+                  ></img>
+                ) : null}
+                <img
+                  className={'productImage'}
+                  height="200"
+                  width="200"
+                  alt={item.name}
+                  src={item.images.largeSrc.path}
+                ></img>
+                <a className={"productName"} href={item.href}>
+                  {item.name}
+                </a>
+                <span>£{item.list_price}</span>
                 <button className={"purchaseButton"}>
                   {item.inStock
                     ? PURCHASE_BUTTON_TEXT.ADD_TO_BASKET
