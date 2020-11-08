@@ -32,7 +32,7 @@ export default function App() {
                     height="80%"
                     className={"productImage"}
                     alt={item.name}
-                    src={item.images.largeSrc.path}
+                    src={item.images.largeSrc}
                   ></img>
                   {isExclusive ? (
                     <img
